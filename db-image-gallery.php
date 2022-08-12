@@ -2,6 +2,8 @@
 /**
  * Plugin Name: DB Websites Image Gallery
  * Author: David Boden
+ * Description: A simple gallery plugin.
+ * Author URI: https://www.db-wesites.com
  */
 
  require plugin_dir_path( __FILE__ ) . '/db-gallery-shortcode.php';
