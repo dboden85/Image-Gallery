@@ -1,6 +1,8 @@
 jQuery(function($){
     const removeButtons = document.querySelectorAll('.remove-image');
 
+    alert("Hello");
+
 
     //Set up image uploader
      $.galleryImgUploader = wp.media({
