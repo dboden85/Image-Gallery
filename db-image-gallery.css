@@ -1,0 +1,96 @@
+.db-image-gallery-container *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.db-image-gallery-container{
+    background-color: #03478050;
+    width: 99%;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.wrap.db-image-gallery-container .add-image{
+    font-size: 20px;
+}
+
+.button#submit{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+ul.tabs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background-color: #000;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+li.tab{
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    margin: 5px;
+    background-color: blue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+}
+
+.gallery-item{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    max-width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    justify-content: center;
+    margin: 10px 0;
+    /* align-items: center; */
+}
+
+.gallery-img{
+    display: block;
+    margin: 5px auto;
+    height: auto;
+}
+
+.remove-image{
+    width: 100%;
+    margin-top: auto !important;
+
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: minmax(200px 1fr);
+    grid-gap: 10px;
+}
+
+.gallery-img-container{
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+}
+
+#status{
+    display: none;
+    width: 100%;
+    background-color: green;
+    color: #fff;
+
+}
