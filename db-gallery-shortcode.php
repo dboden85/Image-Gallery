@@ -11,6 +11,7 @@ function db_gallery_shortcode(){
     $gallery_html = '';
 
     ob_start();
+
     ?>
 
     <?php 
@@ -18,10 +19,13 @@ function db_gallery_shortcode(){
     if( empty($gallery_data) ){
         echo '<p style="text-align: center;">Gallery Images will appear here</p>';
     }
+
     ?>
 
     <div class="gallery-wrapper">
+
     <?php
+
     if( is_array($gallery_data) ){
 
         forEach($gallery_data as $image){
@@ -31,15 +35,18 @@ function db_gallery_shortcode(){
         }
        
     }
+
     ?>
+
     </div>
+
     <?php
+
     $output = ob_get_contents();
     ob_end_clean();
 
     return $output;
-?>
-    <?php
+
 }
 add_shortcode('gallery', 'db_gallery_shortcode');
 

@@ -70,20 +70,13 @@ function db_image_gallery_html(){
 
     $gallery_data = get_option('g_data', '');
 
-    // $gallery_data = '';
-
-
     ?>
+
     <h1 class="db-gallery-title">DB Image Gallery</h1>
     
     <?php echo $update_status; ?>
+
     <div class="wrap db-image-gallery-container">
-        <!-- <div class="tab-container">
-            <ul class="tabs">
-                <li class="tab selected">Galleries</li>
-                <li class="tab">Sliders</li>
-            </ul>
-        </div> -->
         
         <h2>Gallery</h2>
         <button class="add-image button button-primary">Add Image</button>
@@ -99,25 +92,31 @@ function db_image_gallery_html(){
                         
                         $image_data = (array) json_decode( stripslashes( $image ) )[0];
                         $image = esc_attr( stripcslashes($image) );
-                        ?>
+
+                ?>
+
                         <div class="gallery-item" data-id="<?php echo $image_data['id'] ?>">
                             <div class="gallery-img-container" style="background-image: url(<?php echo wp_get_attachment_image_url( $image_data['id'], 'admin-gallery' ); ?>);"></div>
                             <input type="hidden" id="hidden" value="<?php print_r($image); ?>" name="data[]" />
                             <button class="remove-image button button-primary" data-id="<?php echo $image_data['id'] ?>">Remove Image</button>
                         </div>
-                        <?php
+
+                <?php
+
                     }
 
                 }
                 
-
                 ?>
+
             </div>
-            <!-- <input class="button button-primary" id="submit" name="submit" type="submit" /> -->
+            
             <?php submit_button(); ?>
+
         </form>
        
 </div>
 
     <?php
+    
 }
