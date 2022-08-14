@@ -1,22 +1,40 @@
 jQuery(function($){ 
 
+    let galleryIndex = 0;
+
+    $('.next-image').on( 'click', e => {
+        nextImage();
+    } );
+
+    $('.previous-image').on( 'click', e => {
+        previousImage();
+    } );
+
+    
+
     $('.gallery-image').click(function(){
 
-            let fd = new FormData();
-            fd.append('imgId', this.dataset.imageid);
+            galleryIndex = $('.gallery-image').index(this);
 
-            getImage(fd);
+            
+
+            getImage(galleryIndex);
 
     });
 
-    function getImage(id){
+    function getImage(index){
 
         var submitUrl = 'get-gallery-img.php';
+
+        let imageID = $('.gallery-image')[index].dataset.imageid;
+
+        let fd = new FormData();
+        fd.append('imgId', imageID);
 
         $.ajax({
             type:'post',
             url:submitUrl,
-            data: id,
+            data: fd,
             contentType: false,
             processData: false,
             success: function(response){ 
@@ -52,6 +70,45 @@ jQuery(function($){
         $('#light-box-modal').removeClass('open');
     })
 
+
+    function nextImage(){
+
+        if(galleryIndex === $('.gallery-image').length - 1){
+            galleryIndex = 0;
+        }else{
+            galleryIndex++;
+        }
+
+        getImage(galleryIndex);
+    }
+
+    function previousImage(){
+        if(galleryIndex === 0){
+            galleryIndex = $('.gallery-image').length - 1;
+        }else{
+            galleryIndex--;
+        }
+
+        getImage(galleryIndex);
+    }
+
+
+    $(document).keydown(function(e){
+
+        if($('#light-box-modal').hasClass('open')){
+
+            if (e.keyCode == 37) { 
+                previousImage();
+                return false;
+             }
+             if (e.keyCode == 39) { 
+                nextImage();
+                return false;
+             }
+
+        }
+        
+    });
 
 
 })

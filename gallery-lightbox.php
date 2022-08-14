@@ -6,7 +6,16 @@ function add_gallery_light_box(){
 
     <div id="light-box-modal">
         <div class="light-box-image-container">
+            <div class="previous-image">
+                <p><</p>
+            </div>
+
             <img class="lightbox-img" alt="">
+
+            <div class="next-image">
+                <p>></p>
+            </div>
+        
             <p class="close-lightbox">Close</p>
         </div>
     </div>
