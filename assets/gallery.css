@@ -90,7 +90,7 @@
     cursor: pointer;
 }
 
-@media(min-width: 768px){
+@media(min-width: 1160px){
     .previous-image{
         left: -70px;
     }
