@@ -12,9 +12,17 @@ function db_gallery_shortcode(){
 
     ob_start();
     ?>
+
+    <?php 
+    
+    if( empty($gallery_data) ){
+        echo '<p style="text-align: center;">Gallery Images will appear here</p>';
+    }
+    ?>
+
     <div class="gallery-wrapper">
     <?php
-    if(is_array($gallery_data)){
+    if( is_array($gallery_data) ){
 
         forEach($gallery_data as $image){
     

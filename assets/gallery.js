@@ -106,6 +106,11 @@ jQuery(function($){
                 return false;
              }
 
+             if (e.keyCode == 27) { 
+                $('#light-box-modal').removeClass('open');
+                return false;
+             }
+
         }
         
     });

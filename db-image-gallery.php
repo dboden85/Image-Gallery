@@ -57,7 +57,12 @@ function db_image_gallery_html(){
 
     if(array_key_exists('submit', $_POST))
     {
-        update_option('g_data', $_POST['data']);
+        if( isset( $_POST['data'] ) ){
+            update_option('g_data', $_POST['data']);
+        }else{
+            update_option('g_data', '');
+        }
+        
 
         $update_status = '<div class="update-status success"> Update Successful </div>';
 
