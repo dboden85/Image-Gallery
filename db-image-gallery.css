@@ -51,7 +51,7 @@ li.tab{
     flex-direction: column;
     background-color: #fff;
     width: 100%;
-    max-width: 150px;
+    max-width: 200px;
     padding: 5px;
     border-radius: 5px;
     justify-content: center;
@@ -73,9 +73,10 @@ li.tab{
 
 .gallery{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: minmax(200px 1fr);
     grid-gap: 10px;
+    justify-items: center;
 }
 
 .gallery-img-container{
