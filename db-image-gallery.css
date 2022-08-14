@@ -87,21 +87,15 @@ li.tab{
     margin-bottom: 5px;
 }
 
-#status{
-    display: none;
-    width: 100%;
-    background-color: green;
-    color: #fff;
-
-}
-
 .update-status{
     display: none;
+    width: 99%;
     color: #fff;
     padding: 10px;
     font-size: 18px;
     border-radius: 3px;
     margin-left: 5px;
+    box-sizing: border-box;
 
 }
 

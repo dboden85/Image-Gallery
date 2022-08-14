@@ -12,6 +12,7 @@ jQuery(function($){
 
     })
 
+    //Open image uploader
     $('.add-image').on('click', ()=>{
         if( $.galleryImgUploader ){
             $.galleryImgUploader.open();
@@ -20,7 +21,6 @@ jQuery(function($){
 
 
     // adding images to admin page
-
     $.galleryImgUploader.on('select', ()=>{
         let attachment = $.galleryImgUploader.state().get('selection').first().toJSON();
 
