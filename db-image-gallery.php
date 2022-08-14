@@ -49,11 +49,17 @@ function db_image_gallery_page_styles() {
 add_action( 'wp_enqueue_scripts', 'db_image_gallery_page_styles', 10 );
 
 
+
+
 function db_image_gallery_html(){
+
+    $update_status = '';
 
     if(array_key_exists('submit', $_POST))
     {
         update_option('g_data', $_POST['data']);
+
+        $update_status = '<div class="update-status success"> Update Successful </div>';
 
     }
 
@@ -64,7 +70,8 @@ function db_image_gallery_html(){
 
     ?>
     <h1 class="db-gallery-title">DB Image Gallery</h1>
-    <p id="status">Success</p>
+    
+    <?php echo $update_status; ?>
     <div class="wrap db-image-gallery-container">
         <!-- <div class="tab-container">
             <ul class="tabs">

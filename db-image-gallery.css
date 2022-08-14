@@ -94,3 +94,25 @@ li.tab{
     color: #fff;
 
 }
+
+.update-status{
+    display: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 3px;
+    margin-left: 5px;
+
+}
+
+.update-status.success{
+    display: block;
+    background-color: green;
+    
+}
+
+.update-status.fail{
+    display: block;
+    background-color: red;
+    
+}
