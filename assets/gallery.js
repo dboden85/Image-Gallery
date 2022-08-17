@@ -10,8 +10,6 @@ jQuery(function($){
         previousImage();
     } );
 
-    
-
     $('.gallery-image').click(function(){
 
             galleryIndex = $('.gallery-image').index(this);
@@ -24,52 +22,20 @@ jQuery(function($){
 
     function getImage(index){
 
-        var submitUrl = 'get-gallery-img.php';
-
         let imageID = $('.gallery-image')[index].dataset.imageid;
 
-        let fd = new FormData();
-        fd.append('imgId', imageID);
-
-        $.ajax({
-            type:'post',
-            url:submitUrl,
-            data: fd,
-            contentType: false,
-            processData: false,
-            success: function(response){ 
-                get_gallery_image_callback(response); 
-            }
-        });
-
-    }
-
-    function get_gallery_image_callback(resp){
-
-        let jdata = JSON.parse(resp);
-
-        if(jdata.success){
-
-            $('#light-box-modal').addClass('open');
-
-            addImgToLightBox(jdata.image);
-
-        }else{
-            errorMessage(jdata.message);
-        }
+        addImgToLightBox( imgObj[imageID] );
 
     }
 
     function addImgToLightBox(img){
+        $('#light-box-modal').addClass('open');
         $('.lightbox-img').attr('src', img);
     }
-
-
 
     $('.close-lightbox').click(()=>{
         $('#light-box-modal').removeClass('open');
     })
-
 
     function nextImage(){
 

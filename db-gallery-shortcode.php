@@ -40,6 +40,33 @@ function db_gallery_shortcode(){
 
     </div>
 
+    <script>
+        const imgObj = {
+
+            <?php
+
+            if( is_array($gallery_data) ){
+
+                forEach($gallery_data as $image){
+    
+                $image_data = (array) json_decode( stripslashes( $image ) )[0];
+
+                ?>
+                
+                <?php echo $image_data['id']; ?> : "<?php echo wp_get_attachment_image_url( $image_data['id'], 'full' ); ?>",
+
+                <?php
+                    
+                }
+
+            }
+
+            ?>
+
+        }
+
+    </script>
+
     <?php
 
     $output = ob_get_contents();
