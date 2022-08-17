@@ -95,7 +95,7 @@ function db_image_gallery_html(){
 
                 ?>
 
-                        <div class="gallery-item" data-id="<?php echo $image_data['id'] ?>">
+                        <div class="gallery-item" data-id="<?php echo $image_data['id'] ?>" draggable="true">
                             <div class="gallery-img-container" style="background-image: url(<?php echo wp_get_attachment_image_url( $image_data['id'], 'admin-gallery' ); ?>);"></div>
                             <input type="hidden" id="hidden" value="<?php print_r($image); ?>" name="data[]" />
                             <button class="remove-image button button-primary" data-id="<?php echo $image_data['id'] ?>">Remove Image</button>
