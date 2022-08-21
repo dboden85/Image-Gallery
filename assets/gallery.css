@@ -87,6 +87,9 @@
     color: #fff;
     font-size: 70px;
     margin: auto;
+    background-color: #000;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .previous-image p:hover, .next-image p:hover{
