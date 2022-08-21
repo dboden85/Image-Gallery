@@ -4,6 +4,7 @@
  * Author: David Boden
  * Description: A simple gallery plugin.
  * Author URI: https://www.db-wesites.com
+ * Version: 1.0
  */
 
  require plugin_dir_path( __FILE__ ) . '/db-gallery-shortcode.php';
