@@ -15,7 +15,7 @@ function add_gallery_light_box(){
             
             <p class="gallery-img-title">Test Title</p>
 
-            <img class="lightbox-img" alt="">
+            <div class="lightbox-img"></div>
 
             <p class="gallery-img-description">Test Description</p>
 

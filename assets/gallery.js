@@ -36,9 +36,13 @@ jQuery(function($){
 
     }
 
-    function addImgToLightBox(img, title, desc){
+    function addImgToLightBox(image, title, desc){
         $('#light-box-modal').addClass('open');
-        $('.lightbox-img').attr('src', img);
+
+        let galleryImg = document.createElement('img');
+        galleryImg.setAttribute('src', image);
+
+        $('.lightbox-img').append(galleryImg);
         $('.gallery-img-title').text(title);
         $('.gallery-img-description').text(desc);
     }
@@ -48,6 +52,8 @@ jQuery(function($){
     })
 
     function nextImage(){
+
+        $('.lightbox-img img').remove();
 
         if(galleryIndex === $('.gallery-image').length - 1){
             galleryIndex = 0;
@@ -59,6 +65,9 @@ jQuery(function($){
     }
 
     function previousImage(){
+
+        $('.lightbox-img img').remove();
+        
         if(galleryIndex === 0){
             galleryIndex = $('.gallery-image').length - 1;
         }else{
