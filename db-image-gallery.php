@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name: DB Websites Image Gallery
+ * Plugin URI: https://github.com/dboden85/Image-Gallery
  * Author: David Boden
  * Description: A simple gallery plugin.
  * Author URI: https://www.db-wesites.com
@@ -84,7 +85,7 @@ function db_image_gallery_html(){
     <div class="wrap db-image-gallery-container">
         
         <h2>Gallery</h2>
-
+        <p>Use shortcode <strong>[gallery]</strong> to add to the page</p>
         <form method="post" action="">
             <div class="button-container">
 
