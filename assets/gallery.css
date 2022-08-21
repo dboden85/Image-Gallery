@@ -100,10 +100,11 @@
     display: none;
     color: #fff;
     font-size: 30px;
-    margin-left: 20px;
+    margin: 0;
 }
 
 .gallery-img-description{
     display: none;
     color: #fff;
+    margin: 0;
 }
