@@ -51,11 +51,12 @@
 }
 
 .close-lightbox{
-    position: absolute;
-    top: -36px;
-    right: 0;
+    /* position: absolute; */
+    /* top: 20px; */
+    /* right: 20px; */
+    display: inline-block;
     color: #fff;
-    background-color: #333;
+    background-color: red;
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -88,6 +89,18 @@
 
 .previous-image p:hover, .next-image p:hover{
     cursor: pointer;
+}
+
+.gallery-img-title{
+    display: none;
+    color: #fff;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.gallery-img-description{
+    display: none;
+    color: #fff;
 }
 
 @media(min-width: 1160px){

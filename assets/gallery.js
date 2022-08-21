@@ -1,5 +1,13 @@
 jQuery(function($){ 
 
+    if( imgObj['showTitle'] == true ){
+        $('.gallery-img-title').css('display', 'block');
+    }
+
+    if( imgObj['showDescription'] == true ){
+        $('.gallery-img-description').css('display', 'block');
+    }
+
     let galleryIndex = 0;
 
     $('.next-image').on( 'click', e => {
@@ -24,13 +32,15 @@ jQuery(function($){
 
         let imageID = $('.gallery-image')[index].dataset.imageid;
 
-        addImgToLightBox( imgObj[imageID] );
+        addImgToLightBox( imgObj[imageID]['url'], imgObj[imageID]['title'], imgObj[imageID]['desciption'] );
 
     }
 
-    function addImgToLightBox(img){
+    function addImgToLightBox(img, title, desc){
         $('#light-box-modal').addClass('open');
         $('.lightbox-img').attr('src', img);
+        $('.gallery-img-title').text(title);
+        $('.gallery-img-description').text(desc);
     }
 
     $('.close-lightbox').click(()=>{

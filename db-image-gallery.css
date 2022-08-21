@@ -5,7 +5,7 @@
 }
 
 .db-image-gallery-container{
-    background-color: #03478050;
+    /* background-color: #03478050; */
     width: 99%;
     height: auto;
     padding: 10px;
@@ -14,8 +14,20 @@
     box-sizing: border-box;
 }
 
-.wrap.db-image-gallery-container .add-image{
+.wrap.db-image-gallery-container .db-button{
     font-size: 20px;
+    background-color: #2271b1;
+    margin: 5px 0;
+    padding: 15px;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+}
+
+.wrap.db-image-gallery-container .db-button:hover{
+    cursor: pointer;
+    background-color: #135e96;
 }
 
 .button#submit{
@@ -77,6 +89,9 @@ li.tab{
     grid-template-rows: minmax(200px 1fr);
     grid-gap: 10px;
     justify-items: center;
+    background-color: #03478050;
+    border: 1px solid #333;
+    border-radius: 10px;
 }
 
 .gallery-img-container{
@@ -110,4 +125,22 @@ li.tab{
     display: block;
     background-color: red;
     
+}
+
+p.submit{
+    margin: 0 0 10px 0;
+}
+
+p.submit #submit{
+    margin: 0;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 10px;
+    padding: 10px;
 }

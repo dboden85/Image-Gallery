@@ -8,7 +8,7 @@
 
  require plugin_dir_path( __FILE__ ) . '/db-gallery-shortcode.php';
  require plugin_dir_path( __FILE__ ) . '/gallery-lightbox.php';
- require plugin_dir_path( __FILE__ ) . '/get-gallery-img.php';
+//  require plugin_dir_path( __FILE__ ) . '/db-gallery-settings.php';
 
 
 function db_image_gallery_options_page() {
@@ -20,7 +20,7 @@ function db_image_gallery_options_page() {
         'db-image-gallery.php',
         'db_image_gallery_html',
         '',
-        20
+        2
     );
 
 }
@@ -58,7 +58,9 @@ function db_image_gallery_html(){
     if(array_key_exists('submit', $_POST))
     {
         if( isset( $_POST['data'] ) ){
-            update_option('g_data', $_POST['data']);
+            update_option( 'g_data', $_POST['data'] );
+            update_option( 'show-title', $_POST['show-title'] );
+            update_option( 'show-desc', $_POST['show-desc'] );
         }else{
             update_option('g_data', '');
         }
@@ -69,6 +71,8 @@ function db_image_gallery_html(){
     }
 
     $gallery_data = get_option('g_data', '');
+    $title_status = get_option('show-title');
+    $desc_status = get_option('show-desc');
 
     ?>
 
@@ -79,9 +83,29 @@ function db_image_gallery_html(){
     <div class="wrap db-image-gallery-container">
         
         <h2>Gallery</h2>
-        <button class="add-image button button-primary">Add Image</button>
 
         <form method="post" action="">
+            <div class="button-container">
+
+                <a id="add-image" class="db-button">Add Image</a>
+
+                <input type="submit" name="submit" class="db-button" value="Save Changes" />
+
+                <label for="shot-title">Show Title</label>
+
+                <select name="show-title">
+                    <option value="yes" <?php if( $title_status == 'yes' ){ echo 'selected'; } ?> >Yes</option>
+                    <option value="no" <?php if( $title_status == 'no' ){ echo 'selected'; } ?> >No</option>
+                </select>
+
+                <label for="shot-desc">Show Description</label>
+
+                <select name="show-desc">
+                    <option value="yes" <?php if( $desc_status == 'yes' ){ echo 'selected'; } ?> >Yes</option>
+                    <option value="no" <?php if( $desc_status == 'no' ){ echo 'selected'; } ?>>No</option>
+                </select>
+
+            </div>
             <div class="gallery">
                 
                 <?php
@@ -96,7 +120,7 @@ function db_image_gallery_html(){
                 ?>
 
                         <div class="gallery-item" data-id="<?php echo $image_data['id'] ?>" draggable="true">
-                            <div class="gallery-img-container" style="background-image: url(<?php echo wp_get_attachment_image_url( $image_data['id'], 'admin-gallery' ); ?>);"></div>
+                            <div class="gallery-img-container" style="background-image: url(<?php echo wp_get_attachment_image_url( $image_data['id'], 'thumb' ); ?>);"></div>
                             <input type="hidden" id="hidden" value="<?php print_r($image); ?>" name="data[]" />
                             <button class="remove-image button button-primary" data-id="<?php echo $image_data['id'] ?>">Remove Image</button>
                         </div>
@@ -105,13 +129,15 @@ function db_image_gallery_html(){
 
                     }
 
+                }else{
+                    echo '<p class="no-images"> Images will appear here! </p>';
                 }
                 
                 ?>
 
             </div>
             
-            <?php submit_button(); ?>
+            
 
         </form>
        

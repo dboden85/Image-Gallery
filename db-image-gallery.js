@@ -13,7 +13,10 @@ jQuery(function($){
     })
 
     //Open image uploader
-    $('.add-image').on('click', ()=>{
+    $('#add-image').on('click', (e)=>{
+
+        e.preventDefault();
+
         if( $.galleryImgUploader ){
             $.galleryImgUploader.open();
         }
@@ -24,8 +27,10 @@ jQuery(function($){
     $.galleryImgUploader.on('select', ()=>{
         let attachment = $.galleryImgUploader.state().get('selection').first().toJSON();
 
+        console.log(attachment);
+
         let imgUrl = attachment.url;
-        let hidFieldValue = JSON.stringify( [ { id: attachment.id, url: attachment.url } ] );
+        let hidFieldValue = JSON.stringify( [ { id: attachment.id, url: attachment.url, alt: attachment.alt, desc: attachment.description, title: attachment.title } ] );
 
         addImgToGallery(imgUrl, hidFieldValue);
     })
@@ -62,6 +67,8 @@ jQuery(function($){
         }else{
             $('.gallery').append(galleryItem);
         }
+
+        $('.no-images').css('display', 'none');
 
         refreshRemoveButtonArray();
     }

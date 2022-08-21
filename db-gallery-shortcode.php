@@ -4,6 +4,19 @@ function db_gallery_shortcode(){
 
 
     $gallery_data = get_option('g_data', '');
+    $title_status = get_option('show-title');
+    $desc_status = get_option('show-desc');
+    $show_title = 'false';
+    $show_desc = 'false';
+
+    if($title_status == 'yes'){
+        $show_title = 'true';
+    }
+
+    if($desc_status == 'yes'){
+        $show_desc = 'true';
+    }
+
 ?>
 
     <?php
@@ -31,7 +44,7 @@ function db_gallery_shortcode(){
         forEach($gallery_data as $image){
     
         $image_data = (array) json_decode( stripslashes( $image ) )[0];
-            echo '<div class="gallery-image" data-imageid="' . $image_data['id'] . '" style="background-image: url(' . wp_get_attachment_image_url( $image_data['id'], 'full', false, '' ) . ');"></div>';
+            echo '<div class="gallery-image" data-imageid="' . $image_data['id'] . '" style="background-image: url(' . wp_get_attachment_image_url( $image_data['id'], 'thumb', false, '' ) . ');"></div>';
         }
        
     }
@@ -45,15 +58,26 @@ function db_gallery_shortcode(){
 
             <?php
 
+
+
             if( is_array($gallery_data) ){
+                ?>
+
+                showTitle : <?php echo $show_title ?>,
+                
+                showDescription : <?php echo $show_desc ?>,
+
+                <?php
 
                 forEach($gallery_data as $image){
     
                 $image_data = (array) json_decode( stripslashes( $image ) )[0];
 
                 ?>
+
+
                 
-                <?php echo $image_data['id']; ?> : "<?php echo wp_get_attachment_image_url( $image_data['id'], 'full' ); ?>",
+                <?php echo $image_data['id'] . ' '; ?> : { url : "<?php echo wp_get_attachment_image_url( $image_data['id'], 'full' ); ?>", title : "<?php echo $image_data['title']; ?>", desciption :  "<?php echo $image_data['desc']; ?>"},
 
                 <?php
                     
