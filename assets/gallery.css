@@ -102,13 +102,3 @@
     display: none;
     color: #fff;
 }
-
-@media(min-width: 1160px){
-    .previous-image{
-        left: -70px;
-    }
-
-    .next-image{
-        right: -70px;
-    }
-}
