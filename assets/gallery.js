@@ -48,6 +48,8 @@ jQuery(function($){
     }
 
     $('.close-lightbox').click(()=>{
+        $('.lightbox-img img').remove();
+        
         $('#light-box-modal').removeClass('open');
     })
 
