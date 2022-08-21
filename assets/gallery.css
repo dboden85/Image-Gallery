@@ -65,34 +65,33 @@
     cursor: pointer;
 }
 
-.previous-image{
+.next-image, .previous-image{
+    font-family: "Open Sans", sans-serif;
     display: flex;
     position: absolute;
-    top: 0;
-    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
     height: 100%;
-    z-index: 2;
-}
-
-.next-image{
-    display: flex;
-    position: absolute;
-    top: 0;
-    right: 50px;
-    height: 100%;
-    z-index: 2;
-}
-
-.previous-image p, .next-image p{
+    max-height: 100px;
     color: #fff;
     font-size: 70px;
-    margin: auto;
+    margin: 0;
     background-color: #000;
-    padding: 3px;
+    padding: 5px;
     border-radius: 5px;
 }
 
-.previous-image p:hover, .next-image p:hover{
+.next-image{
+    right: 50px;
+    z-index: 2;
+}
+
+.previous-image{
+    left: 50px;
+    z-index: 2;
+}
+
+.previous-image:hover, .next-image:hover{
     cursor: pointer;
 }
 

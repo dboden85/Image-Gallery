@@ -8,7 +8,7 @@ function add_gallery_light_box(){
         
 
         <div class="previous-image">
-            <p><</p>
+            <
         </div>
 
         <div class="light-box-image-container">
@@ -16,13 +16,13 @@ function add_gallery_light_box(){
             <p class="gallery-img-title">Test Title</p>
 
             <img class="lightbox-img" alt="">
-            
+
             <p class="gallery-img-description">Test Description</p>
 
         </div>
 
         <div class="next-image">
-            <p>></p>
+            >
         </div>
 
         <p class="close-lightbox">Close</p>
