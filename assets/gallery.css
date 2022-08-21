@@ -123,6 +123,7 @@
     display: none;
     color: #fff;
     margin: 0;
+    text-align: center;
 }
 
 @keyframes gallery-animation {
