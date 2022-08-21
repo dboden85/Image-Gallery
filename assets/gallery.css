@@ -25,7 +25,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #00000090;
+    background-color: #00000099;
 }
 
 #light-box-modal.open{
@@ -51,9 +51,9 @@
 }
 
 .close-lightbox{
-    /* position: absolute; */
-    /* top: 20px; */
-    /* right: 20px; */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     display: inline-block;
     color: #fff;
     background-color: red;
