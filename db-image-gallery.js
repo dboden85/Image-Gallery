@@ -54,6 +54,7 @@ jQuery(function($){
 
         let addButton = document.createElement('button');
         addButton.setAttribute('class', 'remove-image button button-primary');
+        addButton.setAttribute('onclick', 'this.parentElement.remove()');
         addButton.innerText = 'Remove Image';
 
         galleryItem.appendChild(galleryItemImgContainer);
@@ -79,28 +80,8 @@ jQuery(function($){
         btn.addEventListener('click', e => {
 
             e.preventDefault();
-
-            btn.parentElement.remove();
-
-            refreshRemoveButtonArray();
         })
     })
-
-    function refreshRemoveButtonArray(){
-        const removeButtons = document.querySelectorAll('.remove-image');
-        console.log(removeButtons.length);
-
-        removeButtons.forEach((btn) =>{
-            btn.addEventListener('click', e => {
-    
-                e.preventDefault();
-    
-                btn.parentElement.remove();
-    
-                refreshRemoveButtonArray();
-            })
-        })
-    }
 
 
 })

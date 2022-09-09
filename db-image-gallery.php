@@ -61,6 +61,7 @@ function db_image_gallery_html(){
     {
         if( isset( $_POST['data'] ) ){
             update_option( 'g_data', $_POST['data'] );
+            update_option( 'g_name', $_POST['g-name']);
             update_option( 'show-title', $_POST['show-title'] );
             update_option( 'show-desc', $_POST['show-desc'] );
         }else{
@@ -75,6 +76,7 @@ function db_image_gallery_html(){
     $gallery_data = get_option('g_data', '');
     $title_status = get_option('show-title');
     $desc_status = get_option('show-desc');
+    $gallery_id = get_option('g_name');
 
     ?>
 
@@ -108,6 +110,11 @@ function db_image_gallery_html(){
                 </select>
 
             </div>
+
+            <label for="g-name">Gallery ID</label>
+            <input name="g-name" type="text" value="<?php echo $gallery_id ?>">
+
+
             <div class="gallery">
                 
                 <?php
@@ -124,7 +131,7 @@ function db_image_gallery_html(){
                         <div class="gallery-item" data-id="<?php echo $image_data['id'] ?>" draggable="true">
                             <div class="gallery-img-container" style="background-image: url(<?php echo wp_get_attachment_image_url( $image_data['id'], 'thumb' ); ?>);"></div>
                             <input type="hidden" id="hidden" value="<?php print_r($image); ?>" name="data[]" />
-                            <button class="remove-image button button-primary" data-id="<?php echo $image_data['id'] ?>">Remove Image</button>
+                            <button onclick="this.parentElement.remove()" class="remove-image button button-primary" data-id="<?php echo $image_data['id'] ?>">Remove Image</button>
                         </div>
 
                 <?php
